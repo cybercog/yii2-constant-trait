@@ -9,7 +9,7 @@ use yii\base\UnknownPropertyException;
  *
  * @package chungachguk\traits
  */
-class ConstantHelper extends \yii\base\Object
+class ConstantHelper
 {
     /**
      * @var array массив констант заданного класса
@@ -17,56 +17,24 @@ class ConstantHelper extends \yii\base\Object
     private static $constants = [];
 
     /**
-     * @var string|\yii\base\Object класс или объект, у которого необходимо извлечь список констант
+     * @var string|Object класс или объект, у которого необходимо извлечь список констант
      */
-    private $targetClass;
+    public $targetClass;
 
     /**
      * @var string шаблон формирования ключа массива констант
      */
-    private $keyPattern = '{key}';
+    public $keyPattern = '{key}';
 
     /**
      * @var string шаблон формирования значения массива констант
      */
-    private $valuePattern = '{value}';
+    public $valuePattern = '{value}';
 
     /**
      * @var string префикс имени константы
      */
-    private $prefix = '';
-
-    /**
-     * @param string $value
-     */
-    public function setPrefix($value)
-    {
-        $this->prefix = $value;
-    }
-
-    /**
-     * @param string $value
-     */
-    public function setKeyPattern($value)
-    {
-        $this->keyPattern = $value;
-    }
-
-    /**
-     * @param string $value
-     */
-    public function setValuePattern($value)
-    {
-        $this->valuePattern = $value;
-    }
-
-    /**
-     * @param string $value
-     */
-    public function setTargetClass($value)
-    {
-        $this->targetClass = $value;
-    }
+    public $prefix = '';
 
     /**
      * Извлечь массив (ключ => значение) констант
@@ -82,8 +50,8 @@ class ConstantHelper extends \yii\base\Object
             throw new UnknownPropertyException('targetClass option is not defined');
         }
 
-        if ($this->targetClass instanceof \yii\base\Object) {
-            $this->targetClass = $this->targetClass->className();
+        if (is_object($this->targetClass)) {
+            $this->targetClass = get_class($this->targetClass);
         }
 
         if (!isset(self::$constants[$this->targetClass])) {

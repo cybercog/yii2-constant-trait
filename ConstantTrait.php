@@ -21,7 +21,7 @@ trait ConstantTrait
      */
     public static function getConstants($options = [])
     {
-        $options['class'] = ConstantHelper::className();
+        $options['class'] = '\chungachguk\traits\ConstantHelper';
         $options['targetClass'] = __CLASS__;
 
         return \Yii::createObject($options)->extract();

@@ -9,11 +9,6 @@ trait ConstantTrait
 {
 
     /**
-     * @var \yii\di\Container
-     */
-    private $constantContainer;
-
-    /**
      * Получить список констант текущего класса
      *
      * @param array $options список свойств класса ConstantHelper

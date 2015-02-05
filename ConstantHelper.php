@@ -2,8 +2,6 @@
 
 namespace chungachguk\traits;
 
-use yii\base\UnknownPropertyException;
-
 /**
  * Класс получения списка констант класса с использованием механизма Reflection
  *
@@ -38,16 +36,15 @@ class ConstantHelper
 
     /**
      * Извлечь массив (ключ => значение) констант
-     *
      * @return array
-     * @throws UnknownPropertyException
+     * @throws \Exception
      */
     public function extract()
     {
         $result = [];
 
         if (empty($this->targetClass)) {
-            throw new UnknownPropertyException('targetClass option is not defined');
+            throw new \Exception('ConstantHelper: targetClass option is not defined');
         }
 
         if (is_object($this->targetClass)) {

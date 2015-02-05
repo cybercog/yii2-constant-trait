@@ -1,0 +1,21 @@
+{
+    "name": "chungachguk/yii2-constant-trait",
+    "description": "Easy way to extract constants from yii2 model",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","trait"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Vokhmyakov Vadim Petrovich",
+            "email": "vadim@petrovich.kz"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "chungachguk\\traits\\": ""
+        }
+    }
+}

@@ -25,3 +25,12 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
+```php
+return self::getConstants([
+    'prefix' => 'TYPE_',
+    'keyPattern' => '{value}',
+    'valuePattern' => function($key, $value) {
+        return Yii::t('app', ucfirst($value) . ' type');
+    },
+]);
+```
